@@ -21,3 +21,8 @@ adding lines bit by bit at least every few days. Something real what
 would show a way of thinking and dead ends as I'm starting from
 scratch without any significat previous practical experience in an OS
 internals.
+
+# Development tools
+
+I need to decide which tools to use for experimenting with OS
+development.
