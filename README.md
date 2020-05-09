@@ -30,8 +30,8 @@ internals.
 	- paging
 	- task switching
 	- symmetric multiprocessing
-- Getting from Assembly to higher-level language
-    - write the kernel in C or in embedded C++
+- Get from Assembly a to higher-level language
+    - write the kernel in C or embedded C++
 
 # Development environment
 
