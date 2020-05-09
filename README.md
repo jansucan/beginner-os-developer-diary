@@ -41,4 +41,7 @@ debugging ([wiki osdev: Qemu](https://wiki.osdev.org/QEMU)).
 
 # Bootloader
 
-The first step is to get my code loaded by the Qemu's BIOS.
+The first step is to get my code loaded by the Qemu's BIOS. I'm going to read
+
+- [wiki osdev: Boot sequence](https://wiki.osdev.org/Boot_Sequence)
+- [wiki osdev: Rolling your own bootloader](https://wiki.osdev.org/Rolling_Your_Own_Bootloader)
