@@ -40,3 +40,5 @@ Qemu because I already have it installed. It should also support
 debugging ([wiki osdev](https://wiki.osdev.org/QEMU)).
 
 # Bootloader
+
+The first step is to get my code loaded by the Qemu's BIOS.
