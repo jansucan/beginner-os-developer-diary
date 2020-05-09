@@ -22,7 +22,13 @@ would show a way of thinking and dead ends as I'm starting from
 scratch without any significat previous practical experience in an OS
 internals.
 
-# Development tools
+# Goals
 
-I need to decide which tools to use for experimenting with OS
-development.
+- Get experience and understanding of Intel x86 platform
+    - protected mode
+	- segmentation
+	- paging
+	- task switching
+	- symmetric multiprocessing
+- Getting from Assembly to higher-level language
+    - write the kernel in C or in embedded C++
