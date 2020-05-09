@@ -32,3 +32,9 @@ internals.
 	- symmetric multiprocessing
 - Getting from Assembly to higher-level language
     - write the kernel in C or in embedded C++
+
+# Development environment
+
+Advantages of using a virtual machine are obvious. I will try to use
+Qemu because I already have it installed. It should also support
+debugging ([wiki osdev](https://wiki.osdev.org/QEMU)).
