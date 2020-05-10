@@ -22,6 +22,14 @@ would show a way of thinking and dead ends as I'm starting from
 scratch without any significat previous practical experience in an OS
 internals.
 
+# What I already know
+
+These are my most important sources of information about OS so far
+
+- My studies at
+  [Faculty of Information Technology, Czech Technical University in Prague](https://fit.cvut.cz/)
+- [brokenthorn: OS development series](http://www.brokenthorn.com/Resources/OSDevIndex.html)
+
 # Goals
 
 - Get experience and understanding of Intel x86 platform
