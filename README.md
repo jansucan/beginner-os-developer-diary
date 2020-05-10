@@ -37,7 +37,7 @@ These are my most important sources of information about OS so far
 
 # Goals
 
-- Get experience and understanding of Intel x86 platform
+- Gain experience with and understanding of Intel x86 platform
     - protected mode
 	- segmentation
 	- paging
