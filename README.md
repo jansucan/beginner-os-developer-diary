@@ -46,6 +46,8 @@ These are my most important sources of information about OS so far
 - Get from Assembly a to higher-level language
     - write the kernel in C or embedded C++
 
+I will try to give this work at least 30 minutes a day.
+
 # Development environment
 
 Advantages of using a virtual machine are obvious. I will try to use
