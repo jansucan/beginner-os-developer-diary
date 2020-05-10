@@ -22,6 +22,11 @@ would show a way of thinking and dead ends as I'm starting from
 scratch without any significat previous practical experience in an OS
 internals.
 
+If you find grammar mistakes, broken links, or similar errors or you
+would just like to drop me a line, please write me an
+[e-mail](https://github.com/jansucan), create an issue, or open a pull
+request [here](https://github.com/jansucan/beginner-os-developer-diary).
+
 # What I already know
 
 These are my most important sources of information about OS so far
