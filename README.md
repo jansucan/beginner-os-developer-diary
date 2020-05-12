@@ -62,3 +62,12 @@ The first step is to get my code loaded by the Qemu's BIOS. I'm going to read
 
 - [wiki osdev: Boot sequence](https://wiki.osdev.org/Boot_Sequence)
 - [wiki osdev: Rolling your own bootloader](https://wiki.osdev.org/Rolling_Your_Own_Bootloader)
+
+I would like to boot my OS from a USB drive image instead of a floppy
+disk. I'm going to write a simple boot code which will be placed in
+MBR in the image. The code will print a message and halt the CPU.
+
+- [root: Simple bootsector](https://www.root.cz/clanky/piseme-operacni-system-boot/) (In Czech language)
+- [linux kvm: Booting from USB image](https://www.linux-kvm.org/page/USB#Running)
+- [stackoverflow: Qemu boot from raw image](https://stackoverflow.com/questions/47235461/how-to-resolve-specify-the-raw-format-explicitly-to-remove-the-restrictions)
+- [qemu weilnetz: Qemu documentation](https://qemu.weilnetz.de/doc/qemu-doc.html)
