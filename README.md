@@ -50,6 +50,8 @@ I will try to give this work at least 30 minutes a day.
 
 # Development environment
 
+I am working in a GNU/Linux environment.
+
 Advantages of using a virtual machine are obvious. I will try to use
 Qemu because I already have it installed. It should also support
 debugging ([wiki osdev: Qemu](https://wiki.osdev.org/QEMU)).
