@@ -73,3 +73,10 @@ MBR in the image. The code will print a message and halt the CPU.
 - [linux kvm: Booting from USB image](https://www.linux-kvm.org/page/USB#Running)
 - [stackoverflow: Qemu boot from raw image](https://stackoverflow.com/questions/47235461/how-to-resolve-specify-the-raw-format-explicitly-to-remove-the-restrictions)
 - [qemu weilnetz: Qemu documentation](https://qemu.weilnetz.de/doc/qemu-doc.html)
+
+It's done. I need to create a makefile to automate building of the
+bootable image. I will use GNU Make, but I really need to read its
+manual because I don't want to create it by copy-pasting and hope it
+will work.
+
+- [gnu: GNU make manual](https://www.gnu.org/software/make/manual/)
