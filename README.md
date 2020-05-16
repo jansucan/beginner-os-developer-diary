@@ -26,8 +26,9 @@ If you find grammar mistakes, broken links, or similar errors or you
 would just like to drop me a line, please write me an
 [e-mail](https://github.com/jansucan), create an issue, or open a pull
 request [here](https://github.com/jansucan/beginner-os-developer-diary).
-Also let me know, if there is something you have a hard time
-understanding. I will try to explain it better.
+Also let me know if there is something you have a hard time
+understanding either in this text or the source codes. I will try to
+explain it better.
 
 # What I already know
 
