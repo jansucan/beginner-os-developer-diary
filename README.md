@@ -99,3 +99,21 @@ seting up the environment for the kernel.
 The primary stage has to be put somwhere where the BIOS can find it so
 it can load it into the memory. With the secodary stage there is more
 freedom in terms of where to put it.
+
+I can think of three possibilities where to save the second stage image data
+
+- File system. The size of the primary stage limits the choice
+  of the file system. There is not enough space to support more
+  complex file systems and I would like to implement a file system
+  support in a higher level language.
+
+- Raw partition. The size of the partition would mark a size of
+  the second stage image. This information would need to be updated in
+  the MBR.
+
+- Raw device. Space for the second stage will be reserved after the
+  MBR. Beginning of the first partition will need to be shifted a bit.
+
+I chose the last option: raw device. I think it's the most simple
+one. I'm going to write a "Hello, world!" second stage and get it
+loaded by the primary stage.
