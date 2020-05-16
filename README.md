@@ -80,3 +80,17 @@ manual because I don't want to create it by copy-pasting and hope it
 will work.
 
 - [gnu: GNU make manual](https://www.gnu.org/software/make/manual/)
+- [stackoverflow: Setting the stack registers](https://stackoverflow.com/a/45285701)
+- [wiki osdev: x86 memory map](https://wiki.osdev.org/Memory_Map_(x86))
+
+Done. The Qemu command for booting the image is
+
+```
+qemu-system-x86_64 -device piix3-usb-uhci
+                   -drive id=my_usb_disk,file=boot.img,if=none,format=raw
+                   -device usb-storage,drive=my_usb_disk
+```
+
+Next, I'm going to add support to the primary boot stage for loading a
+bigger secondary stage. The secondary stage will be responsible to
+seting up the environment for the kernel.
