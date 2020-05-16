@@ -87,11 +87,15 @@ will work.
 Done. The Qemu command for booting the image is
 
 ```
-qemu-system-x86_64 -device piix3-usb-uhci
-                   -drive id=my_usb_disk,file=boot.img,if=none,format=raw
+qemu-system-x86_64 -device piix3-usb-uhci \
+                   -drive id=my_usb_disk,file=boot.img,if=none,format=raw \
                    -device usb-storage,drive=my_usb_disk
 ```
 
 Next, I'm going to add support to the primary boot stage for loading a
 bigger secondary stage. The secondary stage will be responsible to
 seting up the environment for the kernel.
+
+The primary stage has to be put somwhere where the BIOS can find it so
+it can load it into the memory. With the secodary stage there is more
+freedom in terms of where to put it.
