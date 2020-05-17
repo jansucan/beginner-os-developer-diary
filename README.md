@@ -61,6 +61,8 @@ debugging ([wiki osdev: Qemu](https://wiki.osdev.org/QEMU)).
 
 # Bootloader
 
+## Primary stage
+
 The first step is to get my code loaded by the Qemu's BIOS. I'm going to read
 
 - [wiki osdev: Boot sequence](https://wiki.osdev.org/Boot_Sequence)
@@ -91,6 +93,8 @@ qemu-system-x86_64 -device piix3-usb-uhci \
                    -drive id=my_usb_disk,file=boot.img,if=none,format=raw \
                    -device usb-storage,drive=my_usb_disk
 ```
+
+## Secondary stage
 
 Next, I'm going to add support to the primary boot stage for loading a
 bigger secondary stage. The secondary stage will be responsible to
