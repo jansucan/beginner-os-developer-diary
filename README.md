@@ -121,3 +121,18 @@ I can think of three possibilities where to save the second stage image data
 I chose the last option: raw device. I think it's the most simple
 one. I'm going to write a "Hello, world!" second stage and get it
 loaded by the primary stage.
+
+- [stackoverflow: Debugging bootloader](https://stackoverflow.com/questions/14242958/debugging-bootloader-with-gdb-in-qemu)
+- [stackoverflow: Single-step assembly code](https://stackoverflow.com/questions/2420813/using-gdb-to-single-step-assembly-code-outside-specified-executable-causes-error)
+- [weinholt: Debugging boot sectors](https://weinholt.se/articles/debugging-boot-sectors/)
+
+Done. The secondary stage is compiled first because the primary stage
+needs to know how many sector the secondary stage image occupies so it
+can load it.
+
+It didn't work at the first time. From the messages printed it seemed
+as if the primary stage was executed twice. I decided that it would be
+a good time to learn some boot code debugging in Qemu. The bug was
+really simple. I forgot that CHS sector numbering starts from 1 so the
+primary stage was loading itself at the secondary stage offset and
+executing it.

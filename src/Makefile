@@ -15,6 +15,8 @@ $(SUBDIRS):
 
 image: $(SUBDIRS) | $(IMAGE_NAME)
 	dd if=$(OBJDIR)/bootloader/primary.bin of=$(IMAGE_NAME) conv=notrunc
+	dd if=$(OBJDIR)/bootloader/secondary.bin of=$(IMAGE_NAME) conv=notrunc \
+	  bs=512 seek=1
 
 clean:
 	rm -rf $(OBJDIR) $(IMAGE_NAME)
