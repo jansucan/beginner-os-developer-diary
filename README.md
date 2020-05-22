@@ -136,3 +136,9 @@ a good time to learn some boot code debugging in Qemu. The bug was
 really simple. I forgot that CHS sector numbering starts from 1 so the
 primary stage was loading itself at the secondary stage offset and
 executing it.
+
+Now, when I can write more code in Assembly and I am not restricted to
+the one sector, I want to explore how I could get to programming in C
+as soon as possible.
+
+- [wiki osdev: Bare bones](https://wiki.osdev.org/Bare_Bones)
