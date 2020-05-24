@@ -142,3 +142,12 @@ the one sector, I want to explore how I could get to programming in C
 as soon as possible.
 
 - [wiki osdev: Bare bones](https://wiki.osdev.org/Bare_Bones)
+
+The kernel in C should be executed in a protected mode of the CPU. I
+need to get to know Intel CPUs better. I'm going to read through
+Volume 3 of the *Intel® 64 and IA-32 Architectures Software
+Developer’s Manuals*. It contains the full system programming
+guide. There are 1766 pages in the document. It will probably take me
+a few weeks to go through it.
+
+- [software intel: SW developer manuals](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
