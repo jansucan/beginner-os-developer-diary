@@ -151,3 +151,15 @@ guide. There are 1766 pages in the document. It will probably take me
 a few weeks to go through it.
 
 - [software intel: SW developer manuals](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
+
+It seems that information from the first 10 chapters of the manual
+will be sufficient for my goals. However, the bootloader needs to
+prepare environment for the kernel running in protected mode
+first. Two things need to be done:
+
+- [wiki osdev: Enabling A20 line](https://wiki.osdev.org/A20_Line)
+- [wiki osdev: Detecting memory](https://wiki.osdev.org/Detecting_Memory_(x86))
+
+I'm going to write support for enabling A20 line first. After breaking
+this task to a smaller parts, the next step is to write a subroutine
+for detecting, whether A20 line is enabled or not.
