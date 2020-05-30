@@ -161,5 +161,5 @@ first. Two things need to be done:
 - [wiki osdev: Detecting memory](https://wiki.osdev.org/Detecting_Memory_(x86))
 
 I'm going to write support for enabling A20 line first. After breaking
-this task to a smaller parts, the next step is to write a subroutine
-for detecting, whether A20 line is enabled or not.
+this task to smaller parts, the next step is to write a subroutine for
+detecting, whether A20 line is enabled or not.
