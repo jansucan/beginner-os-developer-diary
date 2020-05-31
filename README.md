@@ -163,3 +163,12 @@ first. Two things need to be done:
 I'm going to write support for enabling A20 line first. After breaking
 this task to smaller parts, the next step is to write a subroutine for
 detecting, whether A20 line is enabled or not.
+
+- [software intel: Instruction set reference](https://software.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-2a-2b-2c-and-2d-instruction-set-reference-a-z.html)
+- [blog sleeplessbeastie: Convert raw image to VDI](https://blog.sleeplessbeastie.eu/2012/04/29/virtualbox-convert-raw-image-to-vdi-and-otherwise/)
+
+Done. I was a bit surprised when I found out that in Qemu the A20 line
+was already enabled. I wanted to be sure that my code for detecting
+A20 works so I tested it in VirtualBox and A20 was disabled there. I
+decided not to implement enabling of A20 yet and continue with
+detecting memory instead.
