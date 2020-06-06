@@ -32,7 +32,7 @@ explain it better.
 
 # What I already know
 
-These are my most important sources of information about OS so far
+These are my most important sources of information about OSes so far
 
 - My studies at
   [Faculty of Information Technology, Czech Technical University in Prague](https://fit.cvut.cz/)
