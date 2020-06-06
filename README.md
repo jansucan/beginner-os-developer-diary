@@ -188,3 +188,5 @@ cannot generate 16-bit code reliably.
 Thus, the code has to be 32-bit. This implies switching the CPU to the
 protected mode. I think, the next step will be to be able to load and
 run 32-bit executable in a protected mode.
+
+- [wiki osdev: Protected mode](https://wiki.osdev.org/Protected_Mode)
