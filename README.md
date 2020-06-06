@@ -172,3 +172,19 @@ was already enabled. I wanted to be sure that my code for detecting
 A20 works so I tested it in VirtualBox and A20 was disabled there. I
 decided not to implement enabling of A20 yet and continue with
 detecting memory instead.
+
+The detected memory map should be passed to a kernel. Instead of my
+own scheme for doing that I will use the Multiboot Specification.
+
+- [gnu: Multiboot Specification](https://www.gnu.org/software/grub/manual/multiboot/multiboot.html)
+
+I want to print the dected memory map on the screen so I can see
+whether the detection works or not. However I would like to implement
+the print functions in C, not in Assembly, but I have read that GCC
+cannot generate 16-bit code reliably.
+
+- [stackoverflow: How to tell GCC to generate 16-bit code for real mode](https://stackoverflow.com/questions/19055647/how-to-tell-gcc-to-generate-16-bit-code-for-real-mode)
+
+Thus, the code has to be 32-bit. This implies switching the CPU to the
+protected mode. I think, the next step will be to be able to load and
+run 32-bit executable in a protected mode.
