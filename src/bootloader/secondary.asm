@@ -9,6 +9,7 @@
         msg_a20_disabled db 'A20 is disabled',0dh,0ah,0
 
 main:
+	;; Check if A20 line is enabled
 	mov si,msg_prefix
         call print
 	mov si,msg_a20_enabled
@@ -20,9 +21,12 @@ main:
 	mov si,msg_a20_disabled
 main_a20:
 	call print
+	;; Disable non-maskable interrupt
+	call nmi_disable
 
 	cli
 	hlt
 
 %include "print.asm"
 %include "a20_line.asm"
+%include "nmi.asm"

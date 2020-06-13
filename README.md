@@ -190,3 +190,10 @@ protected mode. I think, the next step will be to be able to load and
 run 32-bit executable in a protected mode.
 
 - [wiki osdev: Protected mode](https://wiki.osdev.org/Protected_Mode)
+
+It's advised to disable non-maskable interrupt before entering to
+protected mode. This should be done by writing to port 0x70. I'm going
+to add this to the bootloader's second stage.
+
+- [wiki osdev: Non-maskable interrupt](https://wiki.osdev.org/Non_Maskable_Interrupt)
+- [bochs sourceforge: Port list](http://bochs.sourceforge.net/techspec/PORTS.LST)
