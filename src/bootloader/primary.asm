@@ -2,8 +2,8 @@
 
 %include "secondary_stage_info.inc"
 
-STACK_SEGMENT	equ 0x0050
-STACK_OFFSET	equ 0x0000
+STACK_SEGMENT	equ 0x0000
+STACK_OFFSET	equ 0x7c00
 
         org 0x7c00
         jmp main
