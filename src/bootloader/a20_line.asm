@@ -7,17 +7,13 @@ BOOTSEC_SIGNATURE_LOW_OFFSET	equ 0x7DFE
 BOOTSEC_SIGNATURE_HIGH_SEGMENT	equ 0xFFFF
 BOOTSEC_SIGNATURE_HIGH_OFFSET	equ 0x7E0E
 
+;; Interrupts have to be disabled to prevent modification of the bootsector from an interrupt.
 a20_line_is_enabled:
 	pushf
 	push ds
 	push si
 	push es
 	push di
-
-	;; Prevent modification of the bootsector from interrupt.
-	;; Interupts will be enabled when EFLAGS register is restored by
-	;; popf instruction.
-	cli
 
 	mov ax,BOOTSEC_SIGNATURE_LOW_SEGMENT
 	mov ds,ax

@@ -15,12 +15,13 @@ STACK_OFFSET	equ 0x7c00
 	msg_ok db 'OK',0dh,0ah,0
 
 main:
+	;; Interrupts will be enabled in protected mode after
+	;; interrupt vector table is set up
+        cli
         ;; Move the stack to the area of RAM that is guaranteed free for use.
         mov ax,STACK_SEGMENT
-        cli
         mov ss,ax
         mov sp,STACK_OFFSET
-        sti
 	mov si,msg_prefix
         call print
 	mov si,msg_loaded
@@ -47,7 +48,6 @@ main:
 error:
 	mov si,msg_error
 	call print
-	cli
 	hlt
 
 %include "print.asm"

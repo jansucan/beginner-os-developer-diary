@@ -197,3 +197,11 @@ to add this to the bootloader's second stage.
 
 - [wiki osdev: Non-maskable interrupt](https://wiki.osdev.org/Non_Maskable_Interrupt)
 - [bochs sourceforge: Port list](http://bochs.sourceforge.net/techspec/PORTS.LST)
+
+Finally in the protected mode! However, I would like to understand the
+process of switching CPU modes better. I'm going to read Chapter 9
+*Processor management and initialization* in the Volume 3 of the Intel
+manuals. I will also read through the similar chapter in AMD
+manuals.
+
+- [amd: AMD64 Architecture programmer's manual](https://www.amd.com/system/files/TechDocs/24593.pdf)
