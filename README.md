@@ -205,3 +205,7 @@ manuals. I will also read through the similar chapter in AMD
 manuals.
 
 - [amd: AMD64 Architecture programmer's manual](https://www.amd.com/system/files/TechDocs/24593.pdf)
+
+I need to build a cross compiler.
+
+- [wiki osdev: GCC cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler)
