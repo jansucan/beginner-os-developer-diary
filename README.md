@@ -206,6 +206,13 @@ manuals.
 
 - [amd: AMD64 Architecture programmer's manual](https://www.amd.com/system/files/TechDocs/24593.pdf)
 
-I need to build a cross compiler.
+I need to build a cross-compiler. I want to use the latest GCC version
+which is 10.1, but my GNU/Linux system contains version 5.5.0. It's
+advised version of a cross-compiler to be the same as a version of the
+compiler used to build it (the cross-compiler). So I'm going to look
+into building the latest native compiler first. However, I need to
+wait until I have a laptop cooling pad which I ordered a few days
+ago. Without it my machine slows down when it's under heavy load,
+which building a compiler certainly is, and is overheating.
 
 - [wiki osdev: GCC cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler)
