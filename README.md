@@ -216,3 +216,8 @@ ago. Without it my machine slows down when it's under heavy load,
 which building a compiler certainly is, and is overheating.
 
 - [wiki osdev: GCC cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler)
+
+I have receiced the cooling pad so I can start building the latest
+native compiler.
+
+- [gcc gnu: Installing GCC](https://gcc.gnu.org/install/)
