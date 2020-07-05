@@ -223,7 +223,7 @@ native compiler.
 - [gcc gnu: Installing GCC](https://gcc.gnu.org/install/)
 
 I have built the latest version of the native compiler, and then
-binutils and cross-compilers for i686-elf and x86_64.
+binutils and cross-compilers for i686-elf and x86_64-elf targets.
 
 Hooray! I got to C language!
 
