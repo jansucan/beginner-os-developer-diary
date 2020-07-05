@@ -1,5 +1,7 @@
 	bits 16
 
+%include "kernel_init_info.inc"
+
         org 0x7e00
         jmp main
 
@@ -8,7 +10,9 @@
 %include "nmi.asm"
 
 	msg_prefix db 'Secondary stage: ',0
+	msg_loading_kernel_init db 'Loading kernel init image ... ',0
 	msg_error db 'ERROR: ',0
+	msg_ok db 'OK',0dh,0ah,0
         msg_a20_enabled db 'A20 is enabled',0dh,0ah,0
         msg_a20_disabled db 'A20 is disabled',0dh,0ah,0
 
@@ -38,8 +42,31 @@ gdtr:	dw gdt_end - gdt_start - 1 	; Limit (Size of the GDT)
 	dd gdt_start 			; Base of the GDT
 
 ;;---------------------------------------------------------------------------
-
 main:
+	;; Load the kernel init image
+	mov si,msg_prefix
+        call print
+	mov si,msg_loading_kernel_init
+	call print
+	mov ah,02h
+	mov al,KERNEL_INIT_SECTOR_COUNT
+	mov ch,0
+	mov cl,4
+	mov dh,0
+	;; DL register is already set by the BIOS to the boot drive number
+	mov bx,KERNEL_INIT_LOAD_OFFSET
+	int 13h
+	;; Check for error
+	jc main_load_init_error
+	mov si,msg_ok
+	call print
+	jmp main_load_init_ok
+main_load_init_error:
+	mov si,msg_error
+	call print
+	hlt
+main_load_init_ok:
+
 	;; Check if A20 line is enabled
 	mov si,msg_prefix
         call print
@@ -78,5 +105,8 @@ main_clear_prefetch:
 	mov   fs, ax
 	mov   gs, ax
 	mov   ss, ax
+
+	;; Execute the kernel
+	jmp KERNEL_INIT_ENTRY_OFFSET
 
 	hlt

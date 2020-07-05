@@ -221,3 +221,23 @@ I have receiced the cooling pad so I can start building the latest
 native compiler.
 
 - [gcc gnu: Installing GCC](https://gcc.gnu.org/install/)
+
+I have built the latest version of the native compiler, and then
+binutils and cross-compilers for i686-elf and x86_64.
+
+Hooray! I got to C language!
+
+- [greek0: The ELF format - how programs look from the inside](https://greek0.net/elf.html)
+- [stackoverflow: Load ELF file into memory ](https://stackoverflow.com/questions/39486061/load-elf-file-into-memory)
+- [stackoverflow: Make executable binary file from ELF using GNU objcopy](https://stackoverflow.com/questions/19944441/make-executable-binary-file-from-elf-using-gnu-objcopy)
+
+I used a simple kernel from
+
+- [wiki osdev: Bare bones](https://wiki.osdev.org/Bare_Bones)
+
+I'm going to implement better terminal output functions and then I can
+get back to detecting memory map and passing it to the kernel
+according to the multiboot specification. Note that the kernel is
+32-bit because a multiboot bootloader can load only a 32-bit kernel. I
+call it *init* part of the kernel. It's purpose is to setup an
+environment for the main 64-bit part of the kernel.

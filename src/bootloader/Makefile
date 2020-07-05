@@ -35,7 +35,7 @@ $(SECONDARY_STAGE_INFO_INC): secondary.bin
 	  >> $(OBJDIR)/$(SECONDARY_STAGE_INFO_INC)
 
 secondary.bin: secondary.asm | $(OBJDIR)
-	$(AS) $(ASFLAGS) -o $(OBJDIR)/$@ $<
+	$(AS) $(ASFLAGS) -I$(OBJDIR)/../kernel/ -o $(OBJDIR)/$@ $<
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
