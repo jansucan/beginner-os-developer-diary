@@ -241,3 +241,9 @@ according to the multiboot specification. Note that the kernel is
 32-bit because a multiboot bootloader can load only a 32-bit kernel. I
 call it *init* part of the kernel. It's purpose is to setup an
 environment for the main 64-bit part of the kernel.
+
+I'm going to read
+
+- [brokenthorn: Prepare for the Kernel part 1](http://www.brokenthorn.com/Resources/OSDev10.html)
+
+to get better understaing of controlling the text display.
