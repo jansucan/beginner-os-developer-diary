@@ -1,3 +1,8 @@
+/* This code is based on the example from:
+ *
+ * https://wiki.osdev.org/Bare_Bones
+ */
+
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
