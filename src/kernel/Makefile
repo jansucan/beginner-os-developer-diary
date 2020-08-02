@@ -21,10 +21,10 @@ all: $(IMGS)
 boot.o: boot.asm | $(OBJDIR)
 	$(INIT_AS) -o $(OBJDIR)/$@ $<
 
-init.o: init.c | $(OBJDIR)
+%.o: %.c | $(OBJDIR)
 	$(INIT_GCC) $(INIT_CFLAGS) -o $(OBJDIR)/$@ -c $<
 
-init.bin: boot.o init.o
+init.bin: boot.o init.o terminal.o
 	# Link to ELF format
 	$(INIT_GCC) $(INIT_LFLAGS) -o $(OBJDIR)/$(@:%.bin=%.elf) $(addprefix $(OBJDIR)/,$(notdir $^))
 	# Convert ELF to binary file for easy loading with the secondary stage bootloader
