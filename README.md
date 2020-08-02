@@ -247,3 +247,5 @@ I'm going to read
 - [brokenthorn: Prepare for the Kernel part 1](http://www.brokenthorn.com/Resources/OSDev10.html)
 
 to get better understaing of controlling the text display.
+
+Implemented. I'm going to continue with detecting memory map.
