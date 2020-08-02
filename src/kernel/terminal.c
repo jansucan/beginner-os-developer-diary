@@ -91,7 +91,20 @@ static void terminal_putchar(char c)
     } else {
 	terminal_column = 0;
 	if (++terminal_row == VGA_HEIGHT) {
-	    terminal_row = 0;
+	    --terminal_row;
+	    /* Shift all the rows by one up to make space for the new
+	     * row at the bottom of the display.
+	     */
+	    for (size_t y = 0; y < (VGA_HEIGHT - 1); ++y) {
+		for (size_t x = 0; x < VGA_WIDTH; ++x) {
+		    const size_t i = (y * VGA_WIDTH) + x;
+		    terminal_buffer[i] = terminal_buffer[i + VGA_WIDTH];
+		}
+	    }
+	    /* Clear the bottom row. */
+	    for (size_t x = 0; x < VGA_WIDTH; ++x) {
+		terminal_putchar_at(' ', x, terminal_row);
+	    }
 	}
     }
 }
