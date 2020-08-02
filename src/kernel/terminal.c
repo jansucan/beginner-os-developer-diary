@@ -80,8 +80,15 @@ static void terminal_putchar_at(char c, size_t x, size_t y)
 
 static void terminal_putchar(char c)
 {
-    terminal_putchar_at(c, terminal_column, terminal_row);
-    if (++terminal_column == VGA_WIDTH) {
+    if (c != '\n') {
+	terminal_putchar_at(c, terminal_column, terminal_row);
+	if (++terminal_column == VGA_WIDTH) {
+	    terminal_column = 0;
+	    if (++terminal_row == VGA_HEIGHT) {
+		terminal_row = 0;
+	    }
+	}
+    } else {
 	terminal_column = 0;
 	if (++terminal_row == VGA_HEIGHT) {
 	    terminal_row = 0;
