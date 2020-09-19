@@ -33,7 +33,7 @@ init.bin: boot.o init.o terminal.o
 	echo KERNEL_INIT_LOAD_OFFSET equ $$( \
 	  $(INIT_READELF) -l $(OBJDIR)/$(@:%.bin=%.elf) | \
 	  grep LOAD | \
-	  sort -k4,4 | \
+	  sort -r -k4,4 | \
 	  head -n 1 | \
           awk '{ print $$4 }' \
 	  ) \
