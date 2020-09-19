@@ -249,3 +249,11 @@ I'm going to read
 to get better understaing of controlling the text display.
 
 Implemented. I'm going to continue with detecting memory map.
+
+The following table shows what is loaded at which address.
+
+| Address       | Address as size | Space for the content | Content               |
+| ------------- |---------------- | --------------------- | --------------------- |
+| 0x7C00        | 31 KiB          | 512 B                 | Primary bootloader    |
+| 0x7E00        | 31,5 KiB        | 5,5 KiB               | Secondary bootloader  |
+| 0x9000        | 36 KiB          | 476 KiB               | Kernel Init part      |
