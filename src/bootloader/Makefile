@@ -23,8 +23,8 @@ primary.bin: primary.asm $(SECONDARY_STAGE_INFO_INC)
 $(SECONDARY_STAGE_INFO_INC): secondary.bin
         # Find out the size of the secondary stage image
 	echo SECONDARY_STAGE_SECTOR_COUNT equ $$( \
-	  ls --block-size $(SECTOR_SIZE) -s $(OBJDIR)/$< | \
-	  cut -d' ' -f1) \
+	  ls -l --block-size $(SECTOR_SIZE) $(OBJDIR)/$< | \
+	  cut -d' ' -f5) \
 	  > $(OBJDIR)/$(SECONDARY_STAGE_INFO_INC)
 	# Find out an address the secondary stage is supposed to be
 	# loaded at

@@ -48,9 +48,8 @@ init.bin: boot.o init.o terminal.o
 	  >> $(OBJDIR)/$(INIT_INFO_INC)
 	# Get a size of the binary image in sectors
 	echo KERNEL_INIT_SECTOR_COUNT equ $$( \
-	  echo '(' $$(ls -l $(OBJDIR)/$@ | cut -d' ' -f5) + $(SECTOR_SIZE) - 1 ')' / $(SECTOR_SIZE) | \
-	  bc \
-	  ) \
+	  ls -l --block-size $(SECTOR_SIZE) $(OBJDIR)/$@ | \
+	  cut -d' ' -f5) \
 	  >> $(OBJDIR)/$(INIT_INFO_INC)
 
 $(OBJDIR):
