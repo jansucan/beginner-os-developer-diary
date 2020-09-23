@@ -28,7 +28,9 @@ image: $(SUBDIRS) | $(IMAGE_NAME)
 	dd if=$(OBJDIR)/bootloader/secondary.bin of=$(IMAGE_NAME) conv=notrunc \
 	  bs=512 seek=1
 	dd if=$(OBJDIR)/kernel/init.bin of=$(IMAGE_NAME) conv=notrunc \
-	  bs=512 seek=3
+	  bs=512 seek=$$(( 1 + \
+	    $$(grep SECTOR_COUNT build/bootloader/secondary_stage_info.inc | \
+	      cut -d' ' -f3) ))
 
 clean:
 	rm -rf $(OBJDIR) $(IMAGE_NAME)
