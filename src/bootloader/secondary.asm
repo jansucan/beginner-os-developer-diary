@@ -11,7 +11,7 @@
 
 	msg_prefix db 'Secondary stage: ',0
 	msg_loading_kernel_init db 'Loading kernel init image ... ',0
-	msg_error db 'ERROR: ',0
+	msg_error db 'ERROR',0
 	msg_ok db 'OK',0dh,0ah,0
         msg_a20_enabled db 'A20 is enabled',0dh,0ah,0
         msg_a20_disabled db 'A20 is disabled',0dh,0ah,0
