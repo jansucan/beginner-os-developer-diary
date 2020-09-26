@@ -51,7 +51,7 @@ main:
 	mov ah,02h
 	mov al,KERNEL_INIT_SECTOR_COUNT
 	mov ch,0
-	mov cl,4
+	mov cl,5
 	mov dh,0
 	;; DL register is already set by the BIOS to the boot drive number
 	mov bx,KERNEL_INIT_LOAD_OFFSET
