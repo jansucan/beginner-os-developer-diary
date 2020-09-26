@@ -257,3 +257,7 @@ The following table shows what is loaded at which address.
 | 0x7C00        | 31 KiB          | 512 B                 | Primary bootloader    |
 | 0x7E00        | 31,5 KiB        | 5,5 KiB               | Secondary bootloader  |
 | 0x9000        | 36 KiB          | 476 KiB               | Kernel Init part      |
+
+Initial implementation of memory map detection is finished. I have
+intentionally left some typos and errors in the code so I can
+illustrate fixing them.

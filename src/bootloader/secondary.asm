@@ -8,11 +8,13 @@
 %include "print.asm"
 %include "a20_line.asm"
 %include "nmi.asm"
+%include "multiboot.asm"
 
 	msg_prefix db 'Secondary stage: ',0
 	msg_loading_kernel_init db 'Loading kernel init image ... ',0
 	msg_error db 'ERROR',0
 	msg_ok db 'OK',0dh,0ah,0
+	msg_querying_mmap db 'Querying system address map ... ',0
         msg_a20_enabled db 'A20 is enabled',0dh,0ah,0
         msg_a20_disabled db 'A20 is disabled',0dh,0ah,0
 
@@ -67,9 +69,24 @@ main_load_init_error:
 	hlt
 main_load_init_ok:
 
+	;; Get the memory map
+	mov si,msg_prefix
+        call print	
+	mov si,msg_querying_mmap
+        call print
+	
+	call multiboot_detect_memory_map
+
+	mov si,msg_error
+	cmp ax,1
+	je main_mmap_done
+	mov si,msg_ok
+main_mmap_done:
+	call print
+	
 	;; Check if A20 line is enabled
 	mov si,msg_prefix
-        call print
+        call print	
 	mov si,msg_a20_enabled
 	call a20_line_is_enabled
 	cmp ax,1
@@ -95,16 +112,21 @@ main_a20:
 	jmp 0x08:main_clear_prefetch
 main_clear_prefetch:
 
-	;; 32-bit code in protected mode
+;;---------------------------------------------------------------------------
 	bits 32
 
-	;; Reload data segment registers:
+	;; Setup registers according to the Multiboot Specification
+
+	;; Reload data segment registers
 	mov   ax, 0x10 	; 0x10 points at the new data selector
 	mov   ds, ax
 	mov   es, ax
 	mov   fs, ax
 	mov   gs, ax
 	mov   ss, ax
+
+	mov eax,MULTIBOOT_MAGIC_VALUE
+	mov ebx,multiboot_struct_info
 
 	;; Execute the kernel
 	jmp KERNEL_INIT_ENTRY_OFFSET

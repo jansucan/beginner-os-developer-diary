@@ -8,6 +8,7 @@
 #include <stdint.h>
 
 #include "terminal.h"
+#include "multiboot.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
@@ -23,5 +24,5 @@ void kernel_main(void)
 {
 	terminal_initialize();
 
-	terminal_write_string("Hello, kernel World!\n");
+	multiboot_print_memory_map();
 }
