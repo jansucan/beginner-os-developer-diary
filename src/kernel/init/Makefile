@@ -1,5 +1,3 @@
-INIT_INFO_INC := kernel_init_info.inc
-
 INIT_AS       := i686-elf-as
 INIT_GCC      := i686-elf-gcc
 INIT_READELF  := i686-elf-readelf
@@ -35,7 +33,7 @@ init.bin: boot.o init.o multiboot.o terminal.o
 	  head -n 1 | \
           awk '{ print $$4 }' \
 	  ) \
-	  > $(OBJDIR)/$(INIT_INFO_INC)
+	  > $(OBJDIR)/kernel_init_info.inc
 	# Get an address of the entry point
 	echo KERNEL_INIT_ENTRY_OFFSET equ $$( \
 	  $(INIT_READELF) -h $(OBJDIR)/$(@:%.bin=%.elf) | \
@@ -43,12 +41,12 @@ init.bin: boot.o init.o multiboot.o terminal.o
 	  head -n 1 | \
           awk '{ print $$4 }' \
 	  ) \
-	  >> $(OBJDIR)/$(INIT_INFO_INC)
+	  >> $(OBJDIR)/kernel_init_info.inc
 	# Get a size of the binary image in sectors
 	echo KERNEL_INIT_SECTOR_COUNT equ $$( \
 	  ls -l --block-size $(SECTOR_SIZE) $(OBJDIR)/$@ | \
 	  cut -d' ' -f5) \
-	  >> $(OBJDIR)/$(INIT_INFO_INC)
+	  >> $(OBJDIR)/kernel_init_info.inc
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
