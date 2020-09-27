@@ -1,7 +1,7 @@
 	bits 16
 
 %include "makefile.inc"
-%include "secondary_stage_info.inc"
+%include "info_secondary_stage.inc"
 
 STACK_SEGMENT	equ 0x0000
 STACK_OFFSET	equ 0x7c00

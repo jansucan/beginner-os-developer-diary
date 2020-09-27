@@ -13,10 +13,10 @@ all: $(IMGS)
 # The primary image is dependent on th secondary image because the
 # primary stage needs to know how many 512B sectors the secondary
 # stage occupies.
-primary.bin: primary.asm secondary_stage_info.inc makefile.inc
+primary.bin: primary.asm info_secondary_stage.inc makefile.inc
 	$(AS) $(ASFLAGS) -I $(OBJDIR)/ -o $(OBJDIR)/$@ $<
 
-secondary_stage_info.inc: secondary.bin
+info_secondary_stage.inc: secondary.bin
         # Find out the size of the secondary stage image
 	echo SECONDARY_STAGE_SECTOR_COUNT equ $$( \
 	  ls -l --block-size $(SECTOR_SIZE) $(OBJDIR)/$< | \

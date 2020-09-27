@@ -1,7 +1,7 @@
 	bits 16
 
 %include "makefile.inc"
-%include "kernel_init_info.inc"
+%include "info_kernel_init.inc"
 
         org 0x7e00
         jmp main
