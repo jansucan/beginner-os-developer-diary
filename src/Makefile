@@ -12,8 +12,9 @@ VIRTUAL_MACHINE       := qemu-system-x86_64 -device piix3-usb-uhci \
                          -device usb-storage,drive=my_usb_disk
 VIRTUAL_MACHINE_DEBUG := $(VIRTUAL_MACHINE) -gdb tcp::1234 -S
 
-SUBDIRS := bootloader kernel
-OBJDIR  := $(abspath ./build)
+SUBDIRS       := bootloader kernel
+OBJDIR        := $(abspath ./build)
+MAKE_INCLUDES := $(abspath ./make_includes)
 
 
 export IMAGE_BOOTLOADER_SECONDARY_OFFSET
@@ -34,7 +35,7 @@ run: image
 bootloader: kernel
 
 $(SUBDIRS):
-	$(MAKE) -C $@
+	$(MAKE) -I $(MAKE_INCLUDES) -C $@
 
 image: $(SUBDIRS) | $(IMAGE_NAME)
 	dd if=$(OBJDIR)/bootloader/primary.bin of=$(IMAGE_NAME) conv=notrunc

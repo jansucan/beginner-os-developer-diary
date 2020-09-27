@@ -1,3 +1,5 @@
+include file_size.mk
+
 INIT_AS       := i686-elf-as
 INIT_GCC      := i686-elf-gcc
 INIT_READELF  := i686-elf-readelf
@@ -43,9 +45,8 @@ init.bin: boot.o init.o multiboot.o terminal.o
 	  ) \
 	  >> $(OBJDIR)/info_kernel_init.inc
 	# Get a size of the binary image in sectors
-	echo KERNEL_INIT_SECTOR_COUNT equ $$( \
-	  ls -l --block-size $(SECTOR_SIZE) $(OBJDIR)/$@ | \
-	  cut -d' ' -f5) \
+	echo KERNEL_INIT_SECTOR_COUNT equ \
+	   $(call file_size_in_sectors,$(OBJDIR)/$@) \
 	  >> $(OBJDIR)/info_kernel_init.inc
 
 $(OBJDIR):

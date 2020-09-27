@@ -1,3 +1,5 @@
+include file_size.mk
+
 AS      := nasm
 ASFLAGS := -f bin
 
@@ -18,9 +20,8 @@ primary.bin: primary.asm info_secondary_stage.inc makefile.inc
 
 info_secondary_stage.inc: secondary.bin
         # Find out the size of the secondary stage image
-	echo SECONDARY_STAGE_SECTOR_COUNT equ $$( \
-	  ls -l --block-size $(SECTOR_SIZE) $(OBJDIR)/$< | \
-	  cut -d' ' -f5) \
+	echo SECONDARY_STAGE_SECTOR_COUNT equ \
+	  $(call file_size_in_sectors,$(OBJDIR)/$<) \
 	  > $(OBJDIR)/$@
 	# Find out an address the secondary stage is supposed to be
 	# loaded at
