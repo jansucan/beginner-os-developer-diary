@@ -1,5 +1,3 @@
-SECTOR_SIZE := 512
-
 SECONDARY_STAGE_INFO_INC := secondary_stage_info.inc
 
 AS      := nasm

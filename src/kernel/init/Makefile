@@ -1,5 +1,3 @@
-SECTOR_SIZE := 512
-
 INIT_INFO_INC := kernel_init_info.inc
 
 INIT_AS       := i686-elf-as

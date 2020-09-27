@@ -1,3 +1,5 @@
+SECTOR_SIZE := 512
+
 IMAGE_NAME    := boot.img
 IMAGE_SIZE_MB := 8
 
@@ -9,7 +11,9 @@ VIRTUAL_MACHINE_DEBUG := $(VIRTUAL_MACHINE) -gdb tcp::1234 -S
 SUBDIRS := bootloader kernel
 OBJDIR  := $(abspath ./build)
 
-export OBJDIR
+
+export OBJDIR SECTOR_SIZE
+
 
 .PHONY: all $(SUBDIRS) image clean run run-debug
 
