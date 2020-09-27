@@ -15,7 +15,7 @@ all: $(IMGS)
 # The primary image is dependent on th secondary image because the
 # primary stage needs to know how many 512B sectors the secondary
 # stage occupies.
-primary.bin: primary.asm $(SECONDARY_STAGE_INFO_INC)
+primary.bin: primary.asm $(SECONDARY_STAGE_INFO_INC) makefile.inc
 	$(AS) $(ASFLAGS) -I $(OBJDIR)/ -o $(OBJDIR)/$@ $<
 
 $(SECONDARY_STAGE_INFO_INC): secondary.bin
@@ -32,8 +32,17 @@ $(SECONDARY_STAGE_INFO_INC): secondary.bin
           awk '{ print $$2 }') \
 	  >> $(OBJDIR)/$(SECONDARY_STAGE_INFO_INC)
 
-secondary.bin: secondary.asm | $(OBJDIR)
-	$(AS) $(ASFLAGS) -I$(OBJDIR)/../kernel/init -o $(OBJDIR)/$@ $<
+secondary.bin: secondary.asm makefile.inc
+	$(AS) $(ASFLAGS) -I $(OBJDIR)/ -I$(OBJDIR)/../kernel/init \
+	  -o $(OBJDIR)/$@ $<
+
+makefile.inc: | $(OBJDIR)
+	echo MAKEFILE_IMAGE_BOOTLOADER_SECONDARY_OFFSET equ \
+	  $(IMAGE_BOOTLOADER_SECONDARY_OFFSET) \
+	  > $(OBJDIR)/$@
+	echo MAKEFILE_IMAGE_KERNEL_INIT_OFFSET equ \
+	  $(IMAGE_KERNEL_INIT_OFFSET) \
+	  >> $(OBJDIR)/$@
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)

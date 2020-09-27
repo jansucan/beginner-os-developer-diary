@@ -1,5 +1,6 @@
 	bits 16
 
+%include "makefile.inc"
 %include "secondary_stage_info.inc"
 
 STACK_SEGMENT	equ 0x0000
@@ -34,7 +35,7 @@ main:
 	mov ah,02h
 	mov al,SECONDARY_STAGE_SECTOR_COUNT
 	mov ch,0
-	mov cl,2
+	mov cl,MAKEFILE_IMAGE_BOOTLOADER_SECONDARY_OFFSET + 1
 	mov dh,0
 	;; DL register is already set by the BIOS to the boot drive number
 	mov bx,SECONDARY_STAGE_OFFSET

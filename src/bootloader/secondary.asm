@@ -1,5 +1,6 @@
 	bits 16
 
+%include "makefile.inc"
 %include "kernel_init_info.inc"
 
         org 0x7e00
@@ -53,7 +54,7 @@ main:
 	mov ah,02h
 	mov al,KERNEL_INIT_SECTOR_COUNT
 	mov ch,0
-	mov cl,5
+	mov cl,MAKEFILE_IMAGE_KERNEL_INIT_OFFSET + 1
 	mov dh,0
 	;; DL register is already set by the BIOS to the boot drive number
 	mov bx,KERNEL_INIT_LOAD_OFFSET
