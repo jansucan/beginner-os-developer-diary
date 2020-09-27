@@ -30,9 +30,9 @@ $(SUBDIRS):
 image: $(SUBDIRS) | $(IMAGE_NAME)
 	dd if=$(OBJDIR)/bootloader/primary.bin of=$(IMAGE_NAME) conv=notrunc
 	dd if=$(OBJDIR)/bootloader/secondary.bin of=$(IMAGE_NAME) conv=notrunc \
-	  bs=512 seek=1
+	  bs=$(SECTOR_SIZE) seek=1
 	dd if=$(OBJDIR)/kernel/init/init.bin of=$(IMAGE_NAME) conv=notrunc \
-	  bs=512 seek=$$(( 1 + \
+	  bs=$(SECTOR_SIZE) seek=$$(( 1 + \
 	    $$(grep SECTOR_COUNT build/bootloader/secondary_stage_info.inc | \
 	      cut -d' ' -f3) ))
 
