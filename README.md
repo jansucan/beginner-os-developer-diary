@@ -261,3 +261,11 @@ The following table shows what is loaded at which address.
 Initial implementation of memory map detection is finished. I have
 intentionally left some typos and errors in the code so I can
 illustrate fixing them.
+
+Before writing more code, I need to start using a code style to ensure
+consistency and readability of the Assembly and C source codes.
+
+First, I'm going to make sure that there are no tabs in the Assembly
+and C source files, and no trailing whitespaces in any text file. I
+will also write a simple git pre-commit hook to ensure that no such
+files will be commited.
