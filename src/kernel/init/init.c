@@ -22,7 +22,7 @@
 
 void kernel_main(void)
 {
-	terminal_initialize();
+        terminal_initialize();
 
-	multiboot_print_memory_map();
+        multiboot_print_memory_map();
 }

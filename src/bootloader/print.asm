@@ -1,6 +1,6 @@
 print:
         lodsb
-	;; Test whether the loaded character is the terminating \0.
+        ;; Test whether the loaded character is the terminating \0.
         or    al,al
         jz    short print_exit
         mov   ah,0eh

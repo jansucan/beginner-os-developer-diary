@@ -42,10 +42,10 @@ These are my most important sources of information about OSes so far
 
 - Gain experience with and understanding of Intel x86 platform
     - protected mode
-	- segmentation
-	- paging
-	- task switching
-	- symmetric multiprocessing
+        - segmentation
+        - paging
+        - task switching
+        - symmetric multiprocessing
 - Get from Assembly a to higher-level language
     - write the kernel in C or embedded C++
 

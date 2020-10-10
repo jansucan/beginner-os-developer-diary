@@ -28,7 +28,7 @@ static uint32_t multiboot_get_info_struct_addr(void)
      * EBX.
      */
     asm ("mov %%ebx,%0"
-	 : "=g"(a));
+         : "=g"(a));
 
     return a;
 }
@@ -42,7 +42,7 @@ void multiboot_print_memory_map(void)
 {
     struct __attribute__((packed)) multiboot_info_struct * info_struct =
       (struct multiboot_info_struct *)multiboot_get_info_struct_addr();
-    
+
     terminal_write_string("Multiboot info structure address: ");
     terminal_write_uint32((uint32_t)info_struct);
     terminal_write_string("\n");
@@ -50,21 +50,21 @@ void multiboot_print_memory_map(void)
     terminal_write_string("Memory map length: ");
     terminal_write_uint32(info_struct->mmap_length);
     terminal_write_string("\n");
-    
+
     terminal_write_string("Memory map address: ");
     terminal_write_uint32(info_struct->mmap_addr);
     terminal_write_string("\n");
-    
+
     terminal_write_string("Memory map:\n");
     terminal_write_string("  BaseAddrHigh  BaseAddrLow  LengthLow  LengthHigh  Type\n");
-    
+
     uint8_t l = 0;
     while (l < info_struct->mmap_length) {
       struct __attribute__((packed)) multiboot_mmap_entry * me =
-    	(struct multiboot_mmap_entry *)(info_struct->mmap_addr + l);
-      
+        (struct multiboot_mmap_entry *)(info_struct->mmap_addr + l);
+
       terminal_write_string("  ");
-      
+
       terminal_write_uint32(me->base_addr_high);
       terminal_write_string("    ");
 
@@ -79,28 +79,28 @@ void multiboot_print_memory_map(void)
 
       switch (me->type) {
       case 1:
-	terminal_write_string("AddressRangeMemory");
-	break;
+        terminal_write_string("AddressRangeMemory");
+        break;
 
       case 2:
-	terminal_write_string("AddressRangeReserved");
-	break;
+        terminal_write_string("AddressRangeReserved");
+        break;
 
       case 3:
-	terminal_write_string("AddressRangeACPI");
-	break;
+        terminal_write_string("AddressRangeACPI");
+        break;
 
       case 4:
-	terminal_write_string("AddressRangeNVS");
-	break;
+        terminal_write_string("AddressRangeNVS");
+        break;
 
       case 5:
-	terminal_write_string("AddressRangeUnusable");
-	break;
+        terminal_write_string("AddressRangeUnusable");
+        break;
 
       default:
-	terminal_write_string("Undefined");
-	break;
+        terminal_write_string("Undefined");
+        break;
       }
       terminal_write_string("\n");
 

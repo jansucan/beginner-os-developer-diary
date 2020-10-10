@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Check all files that has some staged content
+git diff --cached --name-only | {
+    retcode=0
+
+    while read f; do
+        # Check the file for tabs
+        if grep -q -P '\t' "$f"; then
+            echo "Tabs: $f"
+            retcode=1
+        fi
+        # Check the file for trailing whitespaces
+        if grep -q -P '[ \t]+$' "$f"; then
+            echo "Trailing whitespaces: $f"
+            retcode=1
+        fi
+    done
+
+    exit $retcode
+}
