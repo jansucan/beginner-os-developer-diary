@@ -18,30 +18,30 @@ multiboot_mmap:
 
 
 multiboot_detect_memory_map:
-        mov dword [multiboot_struct_info_mmap_length],0
-        mov dword [multiboot_struct_info_mmap_addr],multiboot_mmap
-        mov di,multiboot_mmap + 4
-        mov ebx,0
+        mov     dword [multiboot_struct_info_mmap_length], 0
+        mov     dword [multiboot_struct_info_mmap_addr], multiboot_mmap
+        mov     di, multiboot_mmap + 4
+        mov     ebx, 0
 multiboot_detect_memory_map_next:
-        mov eax,0xe820
-        mov ecx,20
-        mov edx,MULTIBOOT_SMAP
-        int 0x15
+        mov     eax, 0xe820
+        mov     ecx, 20
+        mov     edx, MULTIBOOT_SMAP
+        int     0x15
         ;; BIOS returned an address range descriptor
-        jc error
-        cmp eax,MULTIBOOT_SMAP
-        jne error
-        cmp ecx,20
-        jl error
+        jc      error
+        cmp     eax, MULTIBOOT_SMAP
+        jne     error
+        cmp     ecx, 20
+        jl      error
         ;; At least 20 bytes have been returned
-        add dword [multiboot_struct_info_mmap_length],24
-        mov dword [di - 4],24
-        add di,24
+        add     dword [multiboot_struct_info_mmap_length], 24
+        mov     dword [di - 4], 24
+        add     di, 24
         ;; Is this the last descriptor?
-        cmp ebx,0
-        jne multiboot_detect_memory_map_next
+        cmp     ebx, 0
+        jne     multiboot_detect_memory_map_next
         ;; Done
-        mov ax,0
+        mov     ax, 0
         ret
-error:  mov ax,1
+error:  mov     ax, 1
         ret

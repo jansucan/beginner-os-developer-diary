@@ -269,3 +269,18 @@ First, I'm going to make sure that there are no tabs in the Assembly
 and C source files, and no trailing whitespaces in any text file. I
 will also write a simple git pre-commit hook to ensure that no such
 files will be commited.
+
+I have applied a few simple rules to increase readability of the
+Assembly source codes:
+
+- Labels start at the leftmost column.
+- Assembly instructions are indented to the same column.
+- Operand lists of the instructions are indented to the same column.
+- A comma is followed by exactly one space in Assembly instructions
+  and pseudo instructions.
+
+The changes were done manually. I haven't found an automated tool for
+formatting an Assembly source codes that could run locally. Also,
+considering the small extent of Assembly source codes, the manual
+formatting won't be an issue. But for C source codes there should be
+an automated formatting used.

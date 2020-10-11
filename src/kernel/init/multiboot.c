@@ -27,7 +27,7 @@ static uint32_t multiboot_get_info_struct_addr(void)
     /* Bootloader passed an address of the multiboot information structure in
      * EBX.
      */
-    asm ("mov %%ebx,%0"
+    asm ("mov %%ebx, %0"
          : "=g"(a));
 
     return a;
