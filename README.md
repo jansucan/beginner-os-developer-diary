@@ -262,6 +262,8 @@ Initial implementation of memory map detection is finished. I have
 intentionally left some typos and errors in the code so I can
 illustrate fixing them.
 
+## Code style and programming errors
+
 Before writing more code, I need to start using a code style to ensure
 consistency and readability of the Assembly and C source codes.
 
