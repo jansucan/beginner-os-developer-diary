@@ -22,6 +22,11 @@ would show a way of thinking and dead ends as I'm starting from
 scratch without any significat previous practical experience in an OS
 internals.
 
+The aim is to make the implementation simple and as readable as
+possible. Efficiency and speed are not a priority. These requirements
+are often contradictory to simplicity and readability, especially when
+it comes to beginners.
+
 If you find grammar mistakes, broken links, or similar errors or you
 would just like to drop me a line, please write me an
 [e-mail](https://github.com/jansucan), create an issue, or open a pull
