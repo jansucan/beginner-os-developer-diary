@@ -4,7 +4,7 @@ INIT_AS       := i686-elf-as
 INIT_GCC      := i686-elf-gcc
 INIT_READELF  := i686-elf-readelf
 INIT_OBJCOPY  := i686-elf-objcopy
-INIT_CFLAGS   := -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+INIT_CFLAGS   := -std=gnu99 -ffreestanding -O2 -Wall -Wextra -Werror -pedantic
 INIT_LFLAGS   := -T init.ld -ffreestanding -O2 -nostdlib -lgcc
 
 IMGS := init.bin
