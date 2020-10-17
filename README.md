@@ -291,3 +291,7 @@ formatting an Assembly source codes that could run locally. Also,
 considering the small extent of Assembly source codes, the manual
 formatting won't be an issue. But for C source codes there should be
 an automated formatting used.
+
+For C source codes I chose clang-format. I used a style based on LLVM
+with a few manual changes, and added support to the git pre-commit
+hook.

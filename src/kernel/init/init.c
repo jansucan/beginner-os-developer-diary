@@ -7,12 +7,13 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "terminal.h"
 #include "multiboot.h"
+#include "terminal.h"
 
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
-#error "You are not using a cross-compiler, you will most certainly run into trouble"
+#error                                                                         \
+    "You are not using a cross-compiler, you will most certainly run into trouble"
 #endif
 
 /* This tutorial will only work for the 32-bit ix86 targets. */
@@ -22,7 +23,7 @@
 
 void kernel_main(void)
 {
-        terminal_initialize();
+    terminal_initialize();
 
-        multiboot_print_memory_map();
+    multiboot_print_memory_map();
 }

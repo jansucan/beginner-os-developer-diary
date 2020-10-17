@@ -15,6 +15,19 @@ git diff --cached --name-only | {
             echo "Trailing whitespaces: $f"
             retcode=1
         fi
+
+        suffix=$(echo "$f" | sed 's/.*\.//')
+
+        # Check compliance with clang-format
+        if [ $suffix = 'c' -o $suffix = 'h' ]; then
+            sum=$(cat "$f" | md5sum)
+            clang_format_sum=$(clang-format --style=file "$f" | md5sum)
+            if [ "$clang_format_sum" != "$sum" ]; then
+                # Clang-format changed the file
+                echo "Clang-format: $f"
+                retcode=1
+            fi
+        fi
     done
 
     exit $retcode
