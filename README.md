@@ -298,3 +298,17 @@ hook.
 
 I also decided to use cppcheck for static analysis of the C source
 codes to increase chance of catching bugs.
+
+## File system support in Kernel Init
+
+I would like the 64-bit main part of the kernel to be loaded from an
+ELF executable saved in a file system. The next plan is to
+
+1. Figure out how to read data from the boot disk.
+1. Add support for reading a Master Boot Record on the boot disk.
+1. Implement a read-only support for a simple filesystem.
+
+The read-only support should be easy to implement and it should be
+possible to create the file system using a utility present in
+GNU/Linux operating system distributions. The ext2 file system seems
+like a good candidate.
