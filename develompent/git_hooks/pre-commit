@@ -2,6 +2,11 @@
 
 check_tabs()
 {
+    if [ "$(basename "$1")" = "Makefile" ]; then
+       # Don't check Makefiles. They have to contain tabs.
+       return 0
+    fi
+
     if grep -q -P '\t' "$1"; then
         echo "Tabs: $1"
         return 1
