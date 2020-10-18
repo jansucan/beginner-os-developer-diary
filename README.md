@@ -267,7 +267,7 @@ Initial implementation of memory map detection is finished. I have
 intentionally left some typos and errors in the code so I can
 illustrate fixing them.
 
-## Code style and programming errors
+# Code style and programming errors
 
 Before writing more code, I need to start using a code style to ensure
 consistency and readability of the Assembly and C source codes.
@@ -299,7 +299,7 @@ hook.
 I also decided to use cppcheck for static analysis of the C source
 codes to increase chance of catching bugs.
 
-## File system support in Kernel Init
+# File system support in Kernel Init
 
 I would like the 64-bit main part of the kernel to be loaded from an
 ELF executable saved in a file system. The next plan is to
