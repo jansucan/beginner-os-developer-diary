@@ -4,6 +4,7 @@
 git diff --cached --name-only | {
     retcode=0
 
+    # Individual file checks
     while read f; do
         # Check the file for tabs
         if grep -q -P '\t' "$f"; then
@@ -29,6 +30,12 @@ git diff --cached --name-only | {
             fi
         fi
     done
+
+    # Multiple file checks
+    if ! cppcheck --quiet --error-exitcode=1 --force --enable=all \
+         --suppress=missingIncludeSystem --inline-suppr src/ ; then
+        retcode=1
+    fi
 
     exit $retcode
 }

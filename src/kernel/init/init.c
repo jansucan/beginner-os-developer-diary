@@ -21,6 +21,7 @@
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
 
+// cppcheck-suppress unusedFunction
 void kernel_main(void)
 {
     terminal_initialize();

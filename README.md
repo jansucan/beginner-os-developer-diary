@@ -295,3 +295,6 @@ an automated formatting used.
 For C source codes I chose clang-format. I used a style based on LLVM
 with a few manual changes, and added support to the git pre-commit
 hook.
+
+I also decided to use cppcheck for static analysis of the C source
+codes to increase chance of catching bugs.
