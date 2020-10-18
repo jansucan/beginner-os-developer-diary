@@ -51,7 +51,7 @@ These are my most important sources of information about OSes so far
         - paging
         - task switching
         - symmetric multiprocessing
-- Get from Assembly a to higher-level language
+- Get from Assembly to a higher-level language
     - write the kernel in C or embedded C++
 
 I will try to give this work at least 30 minutes a day.
