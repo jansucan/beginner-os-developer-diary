@@ -310,3 +310,10 @@ The read-only support should be easy to implement and it should be
 possible to create the file system using a utility present in
 GNU/Linux operating system distributions. The ext2 file system seems
 like a good candidate.
+
+## Detecting PCI devices
+
+The boot disk is connected to the USB. I need to get a list of PCI
+devices and find the USB controller.
+
+- [wiki osdev: PCI](https://wiki.osdev.org/PCI)
