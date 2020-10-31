@@ -54,8 +54,6 @@ These are my most important sources of information about OSes so far
 - Get from Assembly to a higher-level language
     - write the kernel in C or embedded C++
 
-I will try to give this work at least 30 minutes a day.
-
 # Development environment
 
 I am working in a GNU/Linux environment.
