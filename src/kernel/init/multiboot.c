@@ -53,7 +53,7 @@ void multiboot_print_memory_map(void)
 
     terminal_write_string("Memory map:\n");
     terminal_write_string(
-        "  BaseAddrHigh  BaseAddrLow  LengthLow  LengthHigh  Type\n");
+        "  BaseAddrHigh  BaseAddrLow  LengthHigh  LengthLow   Type\n");
 
     uint8_t l = 0;
     while (l < info_struct->mmap_length) {
@@ -69,7 +69,7 @@ void multiboot_print_memory_map(void)
         terminal_write_string("   ");
 
         terminal_write_uint32(me->length_high);
-        terminal_write_string(" ");
+        terminal_write_string("  ");
 
         terminal_write_uint32(me->length_low);
         terminal_write_string("  ");
