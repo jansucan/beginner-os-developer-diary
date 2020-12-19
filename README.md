@@ -317,3 +317,7 @@ The boot disk is connected to the USB. I need to get a list of PCI
 devices and find the USB controller.
 
 - [wiki osdev: PCI](https://wiki.osdev.org/PCI)
+
+I implemented enumerating of PCI devices and printing basic
+information about them. The USB host controller is 82371SB PIIX3
+(vendor ID 0x8086, device ID 0x7020).

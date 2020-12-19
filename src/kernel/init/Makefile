@@ -22,7 +22,7 @@ boot.o: boot.asm | $(OBJDIR)
 %.o: %.c | $(OBJDIR)
 	$(INIT_GCC) $(INIT_CFLAGS) -o $(OBJDIR)/$@ -c $<
 
-init.bin: boot.o init.o multiboot.o terminal.o
+init.bin: boot.o init.o io_port.o multiboot.o pci.o terminal.o
 	# Link to ELF format
 	$(INIT_GCC) $(INIT_LFLAGS) -o $(OBJDIR)/$(@:%.bin=%.elf) $(addprefix $(OBJDIR)/,$(notdir $^))
 	# Convert ELF to binary file for easy loading with the secondary stage bootloader
