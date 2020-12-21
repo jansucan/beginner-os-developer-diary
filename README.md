@@ -320,4 +320,21 @@ devices and find the USB controller.
 
 I implemented enumerating of PCI devices and printing basic
 information about them. The USB host controller is 82371SB PIIX3
-(vendor ID 0x8086, device ID 0x7020).
+(vendor ID 0x8086, device ID 0x7020) as selected by the qemu command
+line arguments for running the virtual machine.
+
+- [pci-ids ucw: The PCI ID repository](https://pci-ids.ucw.cz/)
+- [datasheet octopart: 82371SB (PIIX3)](https://datasheet.octopart.com/SB82371SB-Intel-datasheet-115123.pdf)
+- [wikibooks: QEMU USB host controllers](https://en.wikibooks.org/wiki/QEMU/Devices/USB/Root)
+
+The controller supports USB 1.0 (UHCI), but I decided I would like to
+have USB 2.0 so I changed the `piix3-usb-uhci` to `usb-ehci`.
+
+```
+qemu-system-x86_64 -device usb-ehci \
+                   -drive id=my_usb_disk,file=boot.img,if=none,format=raw \
+                   -device usb-storage,drive=my_usb_disk
+```
+
+The new USB 2.0 host controller is 82801DB/DBM (ICH4/ICH4-M) (vendor
+ID 0x8086, device ID 0x24cd).

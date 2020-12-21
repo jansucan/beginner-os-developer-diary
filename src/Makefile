@@ -7,7 +7,7 @@ IMAGE_BOOTLOADER_SECONDARY_SPACE  := 4
 IMAGE_KERNEL_INIT_OFFSET          := 5
 IMAGE_KERNEL_INIT_SPACE           := 32
 
-VIRTUAL_MACHINE       := qemu-system-x86_64 -device piix3-usb-uhci \
+VIRTUAL_MACHINE       := qemu-system-x86_64 -device usb-ehci \
                          -drive id=my_usb_disk,file=$(IMAGE_NAME),if=none,format=raw \
                          -device usb-storage,drive=my_usb_disk
 VIRTUAL_MACHINE_DEBUG := $(VIRTUAL_MACHINE) -gdb tcp::1234 -S
