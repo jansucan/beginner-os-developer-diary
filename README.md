@@ -62,9 +62,7 @@ Advantages of using a virtual machine are obvious. I will try to use
 Qemu because I already have it installed. It should also support
 debugging ([wiki osdev: Qemu](https://wiki.osdev.org/QEMU)).
 
-# Bootloader
-
-## Primary stage
+# Bootloader: Primary stage
 
 The first step is to get my code loaded by the Qemu's BIOS. I'm going to read
 
@@ -97,7 +95,7 @@ qemu-system-x86_64 -device piix3-usb-uhci \
                    -device usb-storage,drive=my_usb_disk
 ```
 
-## Secondary stage
+# Bootloader: Secondary stage
 
 Next, I'm going to add support to the primary boot stage for loading a
 bigger secondary stage. The secondary stage will be responsible to
@@ -311,7 +309,7 @@ possible to create the file system using a utility present in
 GNU/Linux operating system distributions. The ext2 file system seems
 like a good candidate.
 
-## Detecting PCI devices
+# Detecting PCI devices
 
 The boot disk is connected to the USB. I need to get a list of PCI
 devices and find the USB controller.
