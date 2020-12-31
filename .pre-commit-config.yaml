@@ -1,0 +1,23 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+-   repo: git://github.com/doublify/pre-commit-clang-format
+    rev: master
+    hooks:
+    -   id: clang-format
+        args: [--style=file]
+-   repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.1.9
+    hooks:
+    -   id: forbid-tabs
+        exclude: '^.*Makefile$|^.*\.mk$'
+-   repo: https://github.com/pocc/pre-commit-hooks
+    rev: python
+    hooks:
+      - id: cppcheck
+        args: [--enable=all, --force, --suppress=missingIncludeSystem, --suppress=unmatchedSuppression, --inline-suppr, src/]
