@@ -336,3 +336,8 @@ qemu-system-x86_64 -device usb-ehci \
 
 The new USB 2.0 host controller is 82801DB/DBM (ICH4/ICH4-M) (vendor
 ID 0x8086, device ID 0x24cd).
+
+# The USB host controller
+
+- [intel: Intel 82801DB I/O Controller Hub 4 (ICH4)](https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/82801db-io-controller-hub-4-datasheet.pdf)
+- [intel: Enhanced Host Controller Interface specification for Universal Serial Bus](https://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/ehci-specification-for-usb.pdf)
