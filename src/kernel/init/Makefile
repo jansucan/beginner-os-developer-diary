@@ -34,12 +34,16 @@ init.bin: boot.o init.o io_port.o multiboot.o pci.o terminal.o
 	# Convert ELF to binary file for easy loading with the secondary stage bootloader
 	$(INIT_OBJCOPY) -O binary $(OBJDIR)/$(@:%.bin=%.elf) $(OBJDIR)/$@
 	# Get the lowest physical address of the loadable sections in the ELF file
+	#
+	#  readelf - Print information about sections in the .ELF file
+	#  awk     - Get physical addresses from the lines describing loadable sections
+	#  sort    - Sort the hexadecimal addresses in ascending order (LC_COLLATE=C)
+	#  head    - Get the first address
 	echo KERNEL_INIT_LOAD_OFFSET equ $$( \
 	  $(INIT_READELF) -l $(OBJDIR)/$(@:%.bin=%.elf) | \
-	  grep LOAD | \
-	  sort -k4,4 | \
-	  head -n 1 | \
-          awk '{ print $$4 }' \
+	  awk '/^ *LOAD/ { print $$4 }' | \
+	  sort | \
+	  head -n 1 \
 	  ) \
 	  > $(OBJDIR)/info_kernel_init.inc
 	# Get an address of the entry point
