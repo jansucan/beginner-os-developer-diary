@@ -12,6 +12,12 @@ IMGS := init.bin
 OBJDIR := $(OBJDIR)/$(notdir $(CURDIR))
 VPATH  := $(OBJDIR)
 
+# This environment variable is intended to be used by the sort utility run from
+# this Makefile when sorting hexadecimal numbers of the same length. C locale
+# collating sequence should place numbers [0-9] before letters [a-f].
+LC_COLLATE := C
+export LC_COLLATE
+
 .PHONY: all $(IMGS) clean
 
 all: $(IMGS)
@@ -31,7 +37,7 @@ init.bin: boot.o init.o io_port.o multiboot.o pci.o terminal.o
 	echo KERNEL_INIT_LOAD_OFFSET equ $$( \
 	  $(INIT_READELF) -l $(OBJDIR)/$(@:%.bin=%.elf) | \
 	  grep LOAD | \
-	  sort -r -k4,4 | \
+	  sort -k4,4 | \
 	  head -n 1 | \
           awk '{ print $$4 }' \
 	  ) \
