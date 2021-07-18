@@ -4,7 +4,9 @@ INIT_AS       := i686-elf-as
 INIT_GCC      := i686-elf-gcc
 INIT_READELF  := i686-elf-readelf
 INIT_OBJCOPY  := i686-elf-objcopy
-INIT_CFLAGS   := -std=c99 -ffreestanding -O2 -Wall -Wextra -Werror -pedantic
+# Disable 'schedule-insns2' because it was causing incorrect behavior when writing to the VGA text
+# buffer
+INIT_CFLAGS   := -std=c99 -ffreestanding -O2 -Wall -Wextra -Werror -pedantic -fno-schedule-insns2
 INIT_LFLAGS   := -T init.ld -ffreestanding -O2 -nostdlib -lgcc
 
 IMGS := init.bin
