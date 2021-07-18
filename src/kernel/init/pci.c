@@ -97,9 +97,7 @@ pci_is_multifunction_device(const struct pci_header_common *const header)
 static bool
 pci_is_function_address_end(const struct pci_function_address *const address)
 {
-    return ((address->bus_number >= PCI_MAX_BUS_COUNT) &&
-            (address->device_number >= PCI_MAX_DEVICE_COUNT) &&
-            (address->function_number >= PCI_MAX_FUNCTION_COUNT));
+    return (address->bus_number >= PCI_MAX_BUS_COUNT);
 }
 
 static void
@@ -123,11 +121,6 @@ pci_increment_function_address(struct pci_function_address *const address,
             address->device_number = 0;
 
             ++(address->bus_number);
-            if (address->bus_number >= PCI_MAX_BUS_COUNT) {
-                address->function_number = PCI_MAX_FUNCTION_COUNT;
-                address->device_number = PCI_MAX_DEVICE_COUNT;
-                // The bus number is equal to the bus count
-            }
         }
     }
 }
@@ -136,8 +129,6 @@ void pci_function_iterator_init(struct pci_function_address *const address,
                                 struct pci_header_common *const header)
 {
     address->bus_number = PCI_MAX_BUS_COUNT;
-    address->device_number = PCI_MAX_DEVICE_COUNT;
-    address->function_number = PCI_MAX_FUNCTION_COUNT;
 
     header->vendor_id = PCI_INVALID_VENDOR_ID;
 }
