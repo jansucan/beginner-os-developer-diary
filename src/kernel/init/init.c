@@ -22,6 +22,31 @@
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
 
+static void print_pci_device_list_header(void)
+{
+    terminal_write_string("\n");
+    terminal_write_string("PCI devices:\n");
+
+    terminal_write_string(
+        "  VendorID   DeviceID   Class      Subclass   ProgIF\n");
+}
+
+static void
+print_pci_header_common(const struct pci_header_common *const pci_header)
+{
+    terminal_write_string("  ");
+    terminal_write_uint32(pci_header->vendor_id);
+    terminal_write_string(" ");
+    terminal_write_uint32(pci_header->device_id);
+    terminal_write_string(" ");
+    terminal_write_uint32(pci_header->class_code);
+    terminal_write_string(" ");
+    terminal_write_uint32(pci_header->subclass);
+    terminal_write_string(" ");
+    terminal_write_uint32(pci_header->prog_if);
+    terminal_write_string("\n");
+}
+
 // cppcheck-suppress unusedFunction
 void kernel_main(void)
 {
@@ -29,5 +54,15 @@ void kernel_main(void)
 
     multiboot_print_memory_map();
 
-    pci_print_devices();
+    // List PCI devices
+    print_pci_device_list_header();
+
+    struct pci_function_address pci_address;
+    struct pci_header_common pci_header;
+
+    pci_function_iterator_init(&pci_address, &pci_header);
+
+    while (pci_function_iterator_next(&pci_address, &pci_header)) {
+        print_pci_header_common(&pci_header);
+    }
 }
